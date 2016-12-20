@@ -1,1 +1,1 @@
-# VeriYap-lar-DataStructures
+# VeriYapilari-DataStructures
