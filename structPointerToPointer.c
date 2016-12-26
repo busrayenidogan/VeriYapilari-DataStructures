@@ -9,22 +9,6 @@ void aa(struct deneme *temp);
 char a[4][10]={"askdjk","sdşksm","sdmk","sdö"};
 int main()
 {
-    /*char **p;
-    int i;
-
-    p = malloc(sizeof(char*)*10); //allocate 10 char*s-worth of bytes
-
-    for (i=0; i<10; i++)
-    {
-        *(p+i) = malloc(30);
-        sprintf(*(p+i),"this is string %d",i);
-    }
-
-    for (i=0; i<10; i++)
-    {
-        printf("%d : %s\n",i,p[i]);
-    }*/
-
     struct deneme *root;
     root = (struct deneme*)malloc(sizeof(struct deneme));
 
