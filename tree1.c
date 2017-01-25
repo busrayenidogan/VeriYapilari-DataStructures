@@ -7,7 +7,7 @@ struct tree
     struct tree *_left;
     struct tree *_right;
 };
-
+struct tree *_first=NULL;
 struct tree *_createNode(int _y);
 struct tree *_insert(struct tree *_temp,int _x);
 struct tree *_delete(struct tree *_temp,int x);
@@ -20,6 +20,7 @@ int _nodeCounter(struct tree *_temp);
 int _heightTree(struct tree *_temp);
 int _minValue(struct tree *_temp);
 int _maxValue(struct tree *_temp);
+int _total(struct tree *_temp);
 
 int main()
 {
@@ -28,7 +29,7 @@ int main()
 
     while(1)
     {
-        printf("[1]Add\n[2]Delete\n[3]List\n[4]Mirror\n[5]Number of node of tree \n[6]High of tree\n[7]Search\n[8]Min Value\n[9]Max Value\n[10]Exit\nChoose : ");
+        printf("[1]Add\n[2]Delete\n[3]List\n[4]Mirror\n[5]Number of node of tree \n[6]High of tree\n[7]Search\n[8]Min Value\n[9]Max Value\n[10]Total\n[11]Exit\nChoose : ");
         scanf("%d",&_choose);
 
         switch(_choose)
@@ -73,6 +74,9 @@ int main()
                 printf("Max Value = %d\n",_minValue(_root));
                 break;
             case 10:
+                printf("Toplam : %d\n",_total(_root));
+                break;
+            case 11:
                 exit(0);
         }
     }
@@ -102,6 +106,7 @@ struct tree *_createNode(int _y)
     _temp->_data=_y;
     _temp->_left=NULL;
     _temp->_right=NULL;
+    //_first=_temp;
     return _temp;
 }
 void _preOrder(struct tree *_temp)
@@ -277,6 +282,18 @@ int _maxValue(struct tree *_temp)
             _temp = _temp->_right;
         }
         return _temp->_data;
+    }
+    else
+    {
+        return 0;
+    }
+}
+int _total(struct tree *_temp)
+{
+   
+    if (_temp != NULL)
+    {
+        return _temp->_data+_total(_temp->_left)+_total(_temp->_right);
     }
     else
     {
